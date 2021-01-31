@@ -25,7 +25,7 @@ function Header() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className="px-4">
                     <Typography variant="h6" className={classes.title}>
                         Chips Counting Dashboard
                     </Typography>
