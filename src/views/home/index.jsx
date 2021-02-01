@@ -1,6 +1,8 @@
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from 'react';
+import ConfigService from '../../services/config';
 
 const useStyles = makeStyles(theme => ({
     menuButton: {
@@ -10,61 +12,81 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
     const classes = useStyles();
+    const [guest1, setGuest1] = useState('');
+    const [guest2, setGuest2] = useState('');
+    const [guest3, setGuest3] = useState('');
+    const [guest4, setGuest4] = useState('');
+    const [guest5, setGuest5] = useState('');
+    useEffect(() => {
+        // Update the document title using the browser API
+        let config = ConfigService.loadConfig();
+        console.log(config);
+        setGuest1(config.TEST.GUEST1);
+        setGuest2(config.TEST.GUEST2);
+        setGuest3(config.TEST.GUEST3);
+        setGuest4(config.TEST.GUEST4);
+        setGuest5(config.TEST.GUEST5);
+    }, []);
     return (
         <main>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST1</p>
                 <TextField
-                    required
-                    id="outlined-required"
                     label="GUEST1"
-                    defaultValue="Jack"
+                    value={guest1}
                     variant="outlined"
                     size="small"
+                    onChange={ e => {
+                        setGuest1(e.target.value);
+                    } }
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST2</p>
                 <TextField
-                    required
-                    id="outlined-required"
                     label="GUEST2"
-                    defaultValue="Rose"
+                    value={guest2}
                     variant="outlined"
                     size="small"
+                    onChange={ e => {
+                        setGuest2(e.target.value);
+                    } }
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST3</p>
                 <TextField
-                    required
-                    id="outlined-required"
                     label="GUEST3"
-                    defaultValue="Lisa"
+                    value={guest3}
                     variant="outlined"
                     size="small"
+                    onChange={ e => {
+                        setGuest3(e.target.value);
+                    } }
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST4</p>
                 <TextField
-                    required
-                    id="outlined-required"
                     label="GUEST4"
-                    defaultValue="Lewis"
+                    value={guest4}
                     variant="outlined"
                     size="small"
+                    onChange={ e => {
+                        setGuest4(e.target.value);
+                    } }
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST4</p>
                 <TextField
-                    required
-                    id="outlined-required"
                     label="GUEST5"
-                    defaultValue="Martin"
+                    value={guest5}
                     variant="outlined"
                     size="small"
+                    onChange={ e => {
+                        setGuest5(e.target.value);
+                    } }
                 />
             </div>
             <div className="flex flex-row items-center justify-end mb-4">
