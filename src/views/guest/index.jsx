@@ -2,6 +2,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ConfigService from '../../services/config';
 
 const useStyles = makeStyles(theme => ({
@@ -10,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function Home() {
+function Guest() {
     const classes = useStyles();
     const [guest1, setGuest1] = useState('');
     const [guest2, setGuest2] = useState('');
@@ -27,6 +28,16 @@ function Home() {
         setGuest4(config.TEST.GUEST4);
         setGuest5(config.TEST.GUEST5);
     }, []);
+    const handleReset = () => {
+        setGuest1('');
+        setGuest2('');
+        setGuest3('');
+        setGuest4('');
+        setGuest5('');
+    };
+    const handleUpdate = () => {
+        console.log(guest1, guest2, guest3, guest4, guest5);
+    };
     return (
         <main>
             <div className="flex flex-row items-center mb-4">
@@ -36,9 +47,9 @@ function Home() {
                     value={guest1}
                     variant="outlined"
                     size="small"
-                    onChange={ e => {
+                    onChange={e => {
                         setGuest1(e.target.value);
-                    } }
+                    }}
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
@@ -48,9 +59,9 @@ function Home() {
                     value={guest2}
                     variant="outlined"
                     size="small"
-                    onChange={ e => {
+                    onChange={e => {
                         setGuest2(e.target.value);
-                    } }
+                    }}
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
@@ -60,9 +71,9 @@ function Home() {
                     value={guest3}
                     variant="outlined"
                     size="small"
-                    onChange={ e => {
+                    onChange={e => {
                         setGuest3(e.target.value);
-                    } }
+                    }}
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
@@ -72,9 +83,9 @@ function Home() {
                     value={guest4}
                     variant="outlined"
                     size="small"
-                    onChange={ e => {
+                    onChange={e => {
                         setGuest4(e.target.value);
-                    } }
+                    }}
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
@@ -84,22 +95,34 @@ function Home() {
                     value={guest5}
                     variant="outlined"
                     size="small"
-                    onChange={ e => {
+                    onChange={e => {
                         setGuest5(e.target.value);
-                    } }
+                    }}
                 />
             </div>
             <div className="flex flex-row items-center justify-end mb-4">
-                <Button className={classes.menuButton} variant="contained" color="primary">
+                <Button
+                    className={classes.menuButton}
+                    variant="contained"
+                    color="primary"
+                    onClick={handleUpdate}
+                >
                     Update
                 </Button>
-                <Button className={classes.menuButton} variant="contained" color="secondary">
+                <Button
+                    className={classes.menuButton}
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleReset}
+                >
                     Reset
                 </Button>
-                <Button variant="contained">Cancel</Button>
+                <Link to="/">
+                    <Button variant="contained">Cancel</Button>
+                </Link>
             </div>
         </main>
     );
 }
 
-export default Home;
+export default Guest;
