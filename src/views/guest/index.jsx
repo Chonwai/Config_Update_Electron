@@ -13,30 +13,37 @@ const useStyles = makeStyles(theme => ({
 
 function Guest() {
     const classes = useStyles();
-    const [guest1, setGuest1] = useState('');
-    const [guest2, setGuest2] = useState('');
-    const [guest3, setGuest3] = useState('');
-    const [guest4, setGuest4] = useState('');
-    const [guest5, setGuest5] = useState('');
+    const [GUEST1, setGUEST1] = useState('');
+    const [GUEST2, setGUEST2] = useState('');
+    const [GUEST3, setGUEST3] = useState('');
+    const [GUEST4, setGUEST4] = useState('');
+    const [GUEST5, setGUEST5] = useState('');
     useEffect(() => {
         // Update the document title using the browser API
-        let config = ConfigService.loadConfig();
-        console.log(config);
-        setGuest1(config.TEST.GUEST1);
-        setGuest2(config.TEST.GUEST2);
-        setGuest3(config.TEST.GUEST3);
-        setGuest4(config.TEST.GUEST4);
-        setGuest5(config.TEST.GUEST5);
+        let res = ConfigService.getTESTSection();
+        setGUEST1(res.GUEST1);
+        setGUEST2(res.GUEST2);
+        setGUEST3(res.GUEST3);
+        setGUEST4(res.GUEST4);
+        setGUEST5(res.GUEST5);
     }, []);
     const handleReset = () => {
-        setGuest1('');
-        setGuest2('');
-        setGuest3('');
-        setGuest4('');
-        setGuest5('');
+        let res = ConfigService.getTESTSection();
+        setGUEST1(res.GUEST1);
+        setGUEST2(res.GUEST2);
+        setGUEST3(res.GUEST3);
+        setGUEST4(res.GUEST4);
+        setGUEST5(res.GUEST5);
     };
     const handleUpdate = () => {
-        console.log(guest1, guest2, guest3, guest4, guest5);
+        let data = {
+            GUEST1: GUEST1,
+            GUEST2: GUEST2,
+            GUEST3: GUEST3,
+            GUEST4: GUEST4,
+            GUEST5: GUEST5
+        }
+        ConfigService.updateTESTSection(data);
     };
     return (
         <main>
@@ -44,11 +51,11 @@ function Guest() {
                 <p className="mr-4 w-20">GUEST1</p>
                 <TextField
                     label="GUEST1"
-                    value={guest1}
+                    value={GUEST1}
                     variant="outlined"
                     size="small"
                     onChange={e => {
-                        setGuest1(e.target.value);
+                        setGUEST1(e.target.value);
                     }}
                 />
             </div>
@@ -56,11 +63,11 @@ function Guest() {
                 <p className="mr-4 w-20">GUEST2</p>
                 <TextField
                     label="GUEST2"
-                    value={guest2}
+                    value={GUEST2}
                     variant="outlined"
                     size="small"
                     onChange={e => {
-                        setGuest2(e.target.value);
+                        setGUEST2(e.target.value);
                     }}
                 />
             </div>
@@ -68,11 +75,11 @@ function Guest() {
                 <p className="mr-4 w-20">GUEST3</p>
                 <TextField
                     label="GUEST3"
-                    value={guest3}
+                    value={GUEST3}
                     variant="outlined"
                     size="small"
                     onChange={e => {
-                        setGuest3(e.target.value);
+                        setGUEST3(e.target.value);
                     }}
                 />
             </div>
@@ -80,11 +87,11 @@ function Guest() {
                 <p className="mr-4 w-20">GUEST4</p>
                 <TextField
                     label="GUEST4"
-                    value={guest4}
+                    value={GUEST4}
                     variant="outlined"
                     size="small"
                     onChange={e => {
-                        setGuest4(e.target.value);
+                        setGUEST4(e.target.value);
                     }}
                 />
             </div>
@@ -92,11 +99,11 @@ function Guest() {
                 <p className="mr-4 w-20">GUEST4</p>
                 <TextField
                     label="GUEST5"
-                    value={guest5}
+                    value={GUEST5}
                     variant="outlined"
                     size="small"
                     onChange={e => {
-                        setGuest5(e.target.value);
+                        setGUEST5(e.target.value);
                     }}
                 />
             </div>
