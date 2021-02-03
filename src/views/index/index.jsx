@@ -4,7 +4,13 @@ import { HomeTwoTone, PeopleTwoTone, ImageTwoTone, PlayArrowTwoTone, VideoCallTw
 
 function Index() {
     const launchVideo = () => {
-        window.child_process.exec("cd ../; ls; cd engine; ./run_video.bat", (error, stdout, stderr) => {
+        let command = '';
+        if (window.navigator.platform === 'Win32') {
+            command = "cd ..\\ & cd engine & .\\run_video.bat";
+        } else {
+            command = "cd ../; cd engine; ./run_video.bat";
+        }
+        window.child_process.exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
@@ -17,7 +23,13 @@ function Index() {
         });
     }
     const launch = () => {
-        window.child_process.exec("cd ../; ls; cd engine; ./run.bat", (error, stdout, stderr) => {
+        let command = '';
+        if (window.navigator.platform === 'Win32') {
+            command = "cd ..\\ & cd engine & .\\run.bat";
+        } else {
+            command = "cd ../; cd engine; ./run.bat";
+        }
+        window.child_process.exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
