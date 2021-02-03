@@ -4,8 +4,20 @@ import { HomeTwoTone, PeopleTwoTone, ImageTwoTone, PlayArrowTwoTone, VideoCallTw
 
 function Index() {
     const launchVideo = () => {
-        console.log("Launch!");
         window.child_process.exec("cd ../; ls; cd engine; ./run_video.bat", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                return;
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+    }
+    const launch = () => {
+        window.child_process.exec("cd ../; ls; cd engine; ./run.bat", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
@@ -31,7 +43,7 @@ function Index() {
                 <ImageTwoTone color="primary" style={{ fontSize: 60 }} />
                 <p className="text-center">Icon</p>
             </Link>
-            <Link className="p-8 w-1/4 flex flex-col justify-center items-center duration-300 transform-gpu ease-in-out hover:scale-110" >
+            <Link className="p-8 w-1/4 flex flex-col justify-center items-center duration-300 transform-gpu ease-in-out hover:scale-110" onClick={launch} >
                 <PlayArrowTwoTone color="primary" style={{ fontSize: 60 }} />
                 <p className="text-center">Launch</p>
             </Link>
