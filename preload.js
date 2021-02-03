@@ -2,7 +2,7 @@
 // It has the same sandbox as a Chrome extension.
 window.ipcRenderer = require('electron').ipcRenderer
 window.fs = require('fs');
-
+window.child_process = require('child_process');
 window.addEventListener('DOMContentLoaded', () => {
     const replaceText = (selector, text) => {
         const element = document.getElementById(selector);
