@@ -96,7 +96,7 @@ function Guest() {
                 />
             </div>
             <div className="flex flex-row items-center mb-4">
-                <p className="mr-4 w-20">GUEST4</p>
+                <p className="mr-4 w-20">GUEST5</p>
                 <TextField
                     label="GUEST5"
                     value={GUEST5}
