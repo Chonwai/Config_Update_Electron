@@ -16,7 +16,12 @@ class ConfigService {
                 config.TEST[key] = data[key];
             }
         }
-        window.fs.writeFileSync(process.env.REACT_APP_CONFIG_PATH, ini.stringify(config))
+        try {
+            window.fs.writeFileSync(process.env.REACT_APP_CONFIG_PATH, ini.stringify(config))
+            alert("Updated!");
+        } catch (error) {
+            alert(error);
+        }
     }
 }
 

@@ -34,6 +34,7 @@ function Guest() {
         setGUEST3(res.GUEST3);
         setGUEST4(res.GUEST4);
         setGUEST5(res.GUEST5);
+        alert("Reseted!");
     };
     const handleUpdate = () => {
         let data = {
