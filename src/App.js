@@ -12,7 +12,7 @@ function App() {
                 <Switch id="router-view">
                     <Route exact path="/" component={Index}></Route>
                     <Route path="/guest" component={Guest}></Route>
-                    <Route path="/icon" component={Icon}></Route>
+                    {/* <Route path="/icon" component={Icon}></Route> */}
                 </Switch>
             </div>
         </Router>

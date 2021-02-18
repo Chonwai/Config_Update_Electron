@@ -1,9 +1,7 @@
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ConfigService from '../../services/config';
 import ImageUploader from 'react-images-upload';
 import './index.css';
 
@@ -20,9 +18,6 @@ function Icon() {
         console.log(picture);
         setPicture(picture);
     }
-    const handleReset = () => {
-        alert('Reseted!');
-    };
     const handleUpdate = () => {
         alert('Updated!');
     };
@@ -48,14 +43,6 @@ function Icon() {
                     onClick={handleUpdate}
                 >
                     Update
-                </Button>
-                <Button
-                    className={classes.menuButton}
-                    variant="contained"
-                    color="secondary"
-                    onClick={handleReset}
-                >
-                    Reset
                 </Button>
                 <Link to="/">
                     <Button variant="contained">Cancel</Button>

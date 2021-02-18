@@ -29,9 +29,9 @@ function Header() {
                     <Typography variant="h6" className={classes.title}>
                         Chips Counting Dashboard
                     </Typography>
-                    <Button color="inherit" endIcon={<LockOpenIcon />}>
+                    {/* <Button color="inherit" endIcon={<LockOpenIcon />}>
                         Auth
-                    </Button>
+                    </Button> */}
                 </Toolbar>
             </AppBar>
         </div>

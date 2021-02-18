@@ -31,10 +31,10 @@ function Index() {
                 <PeopleTwoTone color="primary" style={{ fontSize: 60 }} />
                 <p className="text-center">Guest</p>
             </Link>
-            <Link className="p-8 w-1/4 flex flex-col justify-center items-center duration-300 transform-gpu ease-in-out hover:scale-110" to="/icon">
+            {/* <Link className="p-8 w-1/4 flex flex-col justify-center items-center duration-300 transform-gpu ease-in-out hover:scale-110" to="/icon">
                 <ImageTwoTone color="primary" style={{ fontSize: 60 }} />
                 <p className="text-center">Icon</p>
-            </Link>
+            </Link> */}
             <Link className="p-8 w-1/4 flex flex-col justify-center items-center duration-300 transform-gpu ease-in-out hover:scale-110" onClick={launch} >
                 <PlayArrowTwoTone color="primary" style={{ fontSize: 60 }} />
                 <p className="text-center">Launch</p>
