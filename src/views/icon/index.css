@@ -1,0 +1,10 @@
+.fileContainer {
+    box-shadow: none !important;
+}
+
+.uploadPictureContainer {
+    border-radius: 4px;
+    padding: 0.5rem !important;
+    box-shadow: none !important;
+    margin: 1rem !important;
+}

@@ -48,6 +48,7 @@ function Guest() {
     };
     return (
         <main>
+            <p className="text-2xl font-bold mb-4">Guest Setting</p>
             <div className="flex flex-row items-center mb-4">
                 <p className="mr-4 w-20">GUEST1</p>
                 <TextField
